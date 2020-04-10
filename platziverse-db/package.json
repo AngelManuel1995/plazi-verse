@@ -13,7 +13,9 @@
     "standard": "^14.3.3"
   },
   "dependencies": {
+    "chalk": "^4.0.0",
     "debug": "^4.1.1",
+    "inquirer": "^7.1.0",
     "pg": "^8.0.2",
     "pg-hstore": "^2.3.3",
     "sequelize": "^5.21.6"
