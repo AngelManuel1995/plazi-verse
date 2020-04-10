@@ -1,0 +1,21 @@
+{
+  "name": "platziverse-db",
+  "version": "1.0.0",
+  "description": "A simple IoT Platform - DB Module",
+  "main": "index.js",
+  "scripts": {
+    "setup":"DEBUG=platziverse:* node setup.js",
+    "lint": "standard"
+  },
+  "author": "Angel Manuel Góez Giraldo",
+  "license": "MIT",
+  "devDependencies": {
+    "standard": "^14.3.3"
+  },
+  "dependencies": {
+    "debug": "^4.1.1",
+    "pg": "^8.0.2",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.21.6"
+  }
+}
