@@ -10,6 +10,7 @@
   "author": "Angel Manuel Góez Giraldo",
   "license": "MIT",
   "devDependencies": {
+    "ava": "^3.6.0",
     "standard": "^14.3.3"
   },
   "dependencies": {
