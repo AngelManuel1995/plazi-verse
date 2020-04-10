@@ -4,7 +4,7 @@
   "description": "A simple IoT Platform - DB Module",
   "main": "index.js",
   "scripts": {
-    "setup":"DEBUG=platziverse:* node setup.js",
+    "setup": "DEBUG=platziverse:* node setup.js",
     "lint": "standard"
   },
   "author": "Angel Manuel Góez Giraldo",
