@@ -32,9 +32,9 @@ test('Agent', (t) => {
   t.truthy(db.Agent, 'Db Agent shoul exist')
 })
 
-test.serial('setup',(t) => {
+test.serial('setup', (t) => {
   t.true(AgentStub.hasMany.called, 'AgentModel.hasMany got executed')
   t.true(AgentStub.hasMany.calledWith(MetrictStub), 'AgentModel.hasMany got executed witd MetrictModel as parameter')
-  t.true(MetrictStub.belongsTo.called , 'MetricModel.belongsTo got executed')
-  t.true(MetrictStub.belongsTo.calledWith(AgentStub) , 'MetricModel.belongsTo got executed with AgentModel as parameter')
+  t.true(MetrictStub.belongsTo.called, 'MetricModel.belongsTo got executed')
+  t.true(MetrictStub.belongsTo.calledWith(AgentStub), 'MetricModel.belongsTo got executed with AgentModel as parameter')
 })
