@@ -26,6 +26,7 @@ const agents = [
 
 module.exports = {
   single: agent,
+  all: agents,
   connected: agents.filter(a => a.connected),
   platzi: agents.filter(a => a.username === 'platzi'),
   byUuid: id => agents.filter(a => a.uuid === id).shift(),
