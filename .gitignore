@@ -1,3 +1,4 @@
 */node_modules
 ./platziverse-db/node_modules
 platziverse-db/node_modules
+./platziverse-db/.nyc_output
