@@ -4,6 +4,7 @@ const test = require('ava')
 const proxyquire = require('proxyquire')
 const sinon = require('sinon')
 const agentFixture = require('./fixtures/agent')
+const single = { ... agentFixture.single }
 let db = null
 const id = 1
 let sandbox = null
@@ -44,6 +45,11 @@ test.serial('setup', (t) => {
 })
 
 test.serial('Agent#findById', async (t) => {
-  const Agent = await db.Agent.findById(id)
-  t.deepEqual(Agent, agentFixture.byId(id), 'Should be the same')
+  const agent = await db.Agent.findById(id)
+  t.deepEqual(agent, agentFixture.byId(id), 'Should be the same')
+})
+
+test.serial('Agent#createOrUpdate', async (t) => {
+  const agent = await db.Agent.createOrUpdate(single)
+  t.deepEqual(agent, single, 'Agent should be the same')
 })
