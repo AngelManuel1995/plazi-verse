@@ -24,6 +24,10 @@ test.beforeEach(async () => {
   AgentStub = {
     hasMany: sandbox.spy()
   }
+
+  //Model findById Stub
+  AgentStub.findById = sandbox.stub()
+  AgentStub.findById.withArgs(id).returns(Promise.resolve(agentFixtures.byId(id)))
   const setUpDataBase = proxyquire('../index', {
     './models/agent': () => AgentStub,
     './models/metric': () => MetricStub,
