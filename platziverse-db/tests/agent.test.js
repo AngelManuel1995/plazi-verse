@@ -4,7 +4,6 @@ const test = require('ava')
 const proxyquire = require('proxyquire')
 const sinon = require('sinon')
 const agentFixtures = require('./fixtures/agent')
-const agent = require('./fixtures/agent')
 
 const config = {
   loggin: () => {}
@@ -101,7 +100,7 @@ test.serial('Agent#createOrUpdate - new', async (t) => {
   const agent = await db.Agent.createOrUpdate(newAgent)
   t.true(AgentStub.findOne.called, 'findOne should be called')
   t.true(AgentStub.findOne.calledOnce, 'findOne should be called once')
-  t.true(AgentStub.findOne.calledWith({where : { uuid: newAgent.uuid }}), 'findOne should be called with uuid args')
+  t.true(AgentStub.findOne.calledWith({ where: { uuid: newAgent.uuid } }), 'findOne should be called with uuid args')
   t.true(AgentStub.create.called, 'create shold be called')
   t.true(AgentStub.create.calledOnce, 'create shold be called once')
   t.true(AgentStub.create.calledWith(newAgent), 'create should be called with newAgent args')
