@@ -2,7 +2,7 @@
 
 module.exports = function setupAgent (AgentModel) {
   async function createOrUpdate (agent) {
-    const { uuid } = agent 
+    const { uuid } = agent
     const cond = {
       where: {
         uuid
@@ -10,7 +10,7 @@ module.exports = function setupAgent (AgentModel) {
     }
 
     const existingAgent = AgentModel.findOne(cond)
-    if(existingAgent){
+    if (existingAgent) {
       const agentUpdated = await AgentModel.updateOne(agent, cond)
       return agentUpdated ? AgentModel.findOne(cond) : existingAgent
     }
@@ -22,8 +22,42 @@ module.exports = function setupAgent (AgentModel) {
     return AgentModel.findById(id)
   }
 
+  function findByUuid (uuid) {
+    return AgentModel.findOne({
+      where: {
+        uuid
+      }
+    })
+  }
+
+  function findAll () {
+    return AgentModel.findAll()
+  }
+
+  function findConnected () {
+    return AgentModel.findAll({
+      where: {
+        connected: true
+      }
+    })
+  }
+
+  function findByUsername (username) {
+    const connected = true
+    return AgentModel.findAll({
+      where: {
+        username,
+        connected
+      }
+    })
+  }
+
   return {
     findById,
-    createOrUpdate
+    createOrUpdate,
+    findByUuid,
+    findAll,
+    findConnected,
+    findByUsername
   }
 }
