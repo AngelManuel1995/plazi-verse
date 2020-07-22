@@ -30,7 +30,12 @@
 ```js 
 {
 	agent,
-	metrics: [],
+	metrics: [
+		{
+			type,
+			value
+		}
+	],
 	timestamp // Generar cuando creamos el mensaje
 }
 ```
