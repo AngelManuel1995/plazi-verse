@@ -45,8 +45,6 @@ server.on('ready', async () => {
   const services = await db(config).catch(handlerFatalError)
   Agent = services.Agent
   Metric = services.Metric
-  console.log(Metric)
-  console.log(Agent)
   console.log(`${chalk.green.bold('[platziverse-mqtt]')} server is running`)
 })
 
