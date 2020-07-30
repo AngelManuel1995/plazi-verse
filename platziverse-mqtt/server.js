@@ -37,7 +37,7 @@ server.on('clientConnected', (client) => {
 server.on('clientDisconnected', async (client) => {
   debug(`Client Disconnected: ${client.id}`)
   const agent = clients.get(client.id)
-  if (client) {
+  if (agent) {
     agent.connected = false
     try {
       await Agent.createOrUpdate(agent)
@@ -62,7 +62,7 @@ server.on('published', async (packet, client) => {
     case 'agent/disconnected':
       debug(`Received: ${packet.topic}`)
       break
-    case 'agent/messages':
+    case 'agent/message':
       debug(`Received: ${packet.payload}`)
       const payload = parsePayload(packet.payload)
       if (payload) {
@@ -116,13 +116,14 @@ server.on('ready', async () => {
 server.on('error', handlerFatalError)
 
 function handlerFatalError (error) {
-  console.error(`${chalk.red.bold('[Fatal error]')} ${error.message}`)
+  console.error(`${chalk.red.bold('[fatal error]')} ${error.message}`)
   console.error(error.stack)
   process.exit(1)
 }
 
 function handlerError (error) {
-  console.error(`${chalk.red.bold('[Fatal error]')} ${error.message}`)
+  console.log(error)
+  console.error(`${chalk.red.bold('[error]')} ${error.message}`)
   console.error(error.stack)
 }
 

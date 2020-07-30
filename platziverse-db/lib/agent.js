@@ -11,7 +11,7 @@ module.exports = function setupAgent (AgentModel) {
 
     const existingAgent = AgentModel.findOne(cond)
     if (existingAgent) {
-      const agentUpdated = await AgentModel.updateOne(agent, cond)
+      const agentUpdated = await AgentModel.update(agent, cond)
       return agentUpdated ? AgentModel.findOne(cond) : existingAgent
     }
     const agentCreted = await AgentModel.create(agent)
