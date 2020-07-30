@@ -34,8 +34,25 @@ server.on('clientConnected', (client) => {
   clients.set(client.id, null) // Ingresamos un cliente, pero solo en id porque no conocemos el resto de información
 }) // Cuando el cliente mqtt se connecta
 
-server.on('clientDisconnected', (client) => {
+server.on('clientDisconnected', async (client) => {
   debug(`Client Disconnected: ${client.id}`)
+  const agent = clients.get(client.id)
+  if (client) {
+    agent.connected = false
+    try {
+      await Agent.createOrUpdate(agent)
+    } catch (error) {
+      handlerError(error)
+    }
+    clients.delete(client.id)
+    server.publish({
+      topic: 'agent/messages',
+      payload: JSON.stringify({
+        uuid: agent.uuid
+      })
+    })
+    debug(`Client (${client.id}) associated to agent (${agent.uuid}) got market as disconneted`)
+  }
 }) // Cuando el cliente mqtt se connecta
 
 server.on('published', async (packet, client) => {
