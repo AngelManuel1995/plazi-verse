@@ -39,11 +39,11 @@ server.on('clientDisconnected', (client) => {
 }) // Cuando el cliente mqtt se connecta
 
 server.on('published', async (packet, client) => {
-  debug(`Received: ${packet.topic}`)
+  debug(`Received: ${packet.payload}`)
   switch (packet.topic) {
     case 'agent/connected':
     case 'agent/disconnected':
-      debug(`Received: ${packet.payload}`)
+      debug(`Received: ${packet.topic}`)
       break
     case 'agent/messages':
       debug(`Received: ${packet.payload}`)
@@ -72,6 +72,17 @@ server.on('published', async (packet, client) => {
               }
             })
           })
+        }
+
+        // Storing metrics
+        for (const metric of payload.metrics) {
+          let m = {}
+          try {
+            m = await Metric.create(agent.uuid, metric)
+          } catch (error) {
+            handlerError(error)
+          }
+          debug(`Metric ${m.uuid} saved on agent ${agent.uuid}`)
         }
       }
       break
