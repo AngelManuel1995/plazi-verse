@@ -3,3 +3,4 @@
 platziverse-db/node_modules
 ./platziverse-db/.nyc_output
 /platziverser-mqtt/node_modules
+/platziverser-agent/node_modules

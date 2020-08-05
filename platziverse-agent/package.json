@@ -1,0 +1,16 @@
+{
+  "name": "platziverse-agent",
+  "version": "1.0.0",
+  "description": "A Simple IoT platform - Agent",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "standard": "^14.3.4"
+  }
+}
