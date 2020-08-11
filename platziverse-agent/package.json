@@ -14,7 +14,8 @@
   "dependencies": {
     "debug": "^4.1.1",
     "defaults": "^1.0.3",
-    "mqtt": "^4.1.0"
+    "mqtt": "^4.1.0",
+    "uuid": "^8.3.0"
   },
   "devDependencies": {
     "standard": "^14.3.4"
