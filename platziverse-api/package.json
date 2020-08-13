@@ -1,0 +1,32 @@
+{
+  "name": "platziverse-api",
+  "version": "1.0.0",
+  "description": "A simple IoT platform - API",
+  "private": true,
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "standard",
+    "dev": "DEBUG=platziverse:* nodemon server.js",
+    "start": "NODE_ENV=production node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AngelManuel1995/plazi-verse.git"
+  },
+  "author": "Angel Manuel Góez Giraldo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AngelManuel1995/plazi-verse/issues"
+  },
+  "homepage": "https://github.com/AngelManuel1995/plazi-verse#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.4",
+    "standard": "^14.3.4"
+  },
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "debug": "^4.1.1",
+    "express": "^4.17.1"
+  }
+}
