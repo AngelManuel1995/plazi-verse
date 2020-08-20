@@ -1,6 +1,7 @@
 'use strict'
 const express = require('express')
 const api = express.Router()
+const db = require('platziverse-db')
 
 api.get('/agents', (req, res) => {
   res.send({})
